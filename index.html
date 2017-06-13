@@ -7,7 +7,9 @@
     <title>Chess - Catalan Opening: Closed Variation</title>
   </head>
   <body>
-    <main class="board">
+    <main id="board">
+
+      <div class="corner"></div>
       <div class="top-letters">a</div>
       <div class="top-letters">b</div>
       <div class="top-letters">c</div>
@@ -16,95 +18,97 @@
       <div class="top-letters">f</div>
       <div class="top-letters">g</div>
       <div class="top-letters">h</div>
-
-      <div class="left-number">1</div>
-      <div class="wspace" id="a1"></div>
-      <div class="bspace" id="b1"></div>
-      <div class="wspace" id="c1"></div>
-      <div class="bspace" id="d1"></div>
-      <div class="wspace" id="e1"></div>
-      <div class="bspace" id="f1"></div>
-      <div class="wspace" id="g1"></div>
-      <div class="bspace" id="h1"></div>
-      <div class="right-number">1</div>
-
-      <div class="left-number">2</div>
-      <div class="bspace" id="a2"></div>
-      <div class="wspace" id="b2"></div>
-      <div class="bspace" id="c2"></div>
-      <div class="wspace" id="d2"></div>
-      <div class="bspace" id="e2"></div>
-      <div class="wspace" id="f2"></div>
-      <div class="bspace" id="g2"></div>
-      <div class="wspace" id="h2"></div>
-      <div class="right-number">2</div>
-
-      <div class="left-number">3</div>
-      <div class="wspace" id="a3"></div>
-      <div class="bspace" id="b3"></div>
-      <div class="wspace" id="c3"></div>
-      <div class="bspace" id="d3"></div>
-      <div class="wspace" id="e3"></div>
-      <div class="bspace" id="f3"></div>
-      <div class="wspace" id="g3"></div>
-      <div class="bspace" id="h3"></div>
-      <div class="right-number">3</div>
-
-      <div class="left-number">4</div>
-      <div class="bspace" id="a4"></div>
-      <div class="wspace" id="b4"></div>
-      <div class="bspace" id="c4"></div>
-      <div class="wspace" id="d4"></div>
-      <div class="bspace" id="e4"></div>
-      <div class="wspace" id="f4"></div>
-      <div class="bspace" id="g4"></div>
-      <div class="wspace" id="h4"></div>
-      <div class="right-number">4</div>
-
-      <div class="left-number">5</div>
-      <div class="wspace" id="a5"></div>
-      <div class="bspace" id="b5"></div>
-      <div class="wspace" id="c5"></div>
-      <div class="bspace" id="d5"></div>
-      <div class="wspace" id="e5"></div>
-      <div class="bspace" id="f5"></div>
-      <div class="wspace" id="g5"></div>
-      <div class="bspace" id="h5"></div>
-      <div class="right-number">5</div>
-
-      <div class="left-number">6</div>
-      <div class="bspace" id="a6"></div>
-      <div class="wspace" id="b6"></div>
-      <div class="bspace" id="c6"></div>
-      <div class="wspace" id="d6"></div>
-      <div class="bspace" id="e6"></div>
-      <div class="wspace" id="f6"></div>
-      <div class="bspace" id="g6"></div>
-      <div class="wspace" id="h6"></div>
-      <div class="right-number">6</div>
-
-      <div class="left-number">7</div>
-      <div class="wspace" id="a7"></div>
-      <div class="bspace" id="b7"></div>
-      <div class="wspace" id="c7"></div>
-      <div class="bspace" id="d7"></div>
-      <div class="wspace" id="e7"></div>
-      <div class="bspace" id="f7"></div>
-      <div class="wspace" id="g7"></div>
-      <div class="bspace" id="h7"></div>
-      <div class="right-number">7</div>
+      <div class="corner"></div>
 
       <div class="left-number">8</div>
-      <div class="bspace" id="a8"></div>
-      <div class="wspace" id="b8"></div>
-      <div class="bspace" id="c8"></div>
-      <div class="wspace" id="d8"></div>
-      <div class="bspace" id="e8"></div>
-      <div class="wspace" id="f8"></div>
-      <div class="bspace" id="g8"></div>
-      <div class="wspace" id="h8"></div>
+      <div class="wspace" id="a8"></div>
+      <div class="bspace" id="b8"></div>
+      <div class="wspace" id="c8"></div>
+      <div class="bspace" id="d8"></div>
+      <div class="wspace" id="e8"></div>
+      <div class="bspace" id="f8"></div>
+      <div class="wspace" id="g8"></div>
+      <div class="bspace" id="h8"></div>
       <div class="right-number">8</div>
 
+      <div class="left-number">7</div>
+      <div class="bspace" id="a7"></div>
+      <div class="wspace" id="b7"></div>
+      <div class="bspace" id="c7"></div>
+      <div class="wspace" id="d7"></div>
+      <div class="bspace" id="e7"></div>
+      <div class="wspace" id="f7"></div>
+      <div class="bspace" id="g7"></div>
+      <div class="wspace" id="h7"></div>
+      <div class="right-number">7</div>
+
+      <div class="left-number">6</div>
+      <div class="wspace" id="a6"></div>
+      <div class="bspace" id="b6"></div>
+      <div class="wspace" id="c6"></div>
+      <div class="bspace" id="d6"></div>
+      <div class="wspace" id="e6"></div>
+      <div class="bspace" id="f6"></div>
+      <div class="wspace" id="g6"></div>
+      <div class="bspace" id="h6"></div>
+      <div class="right-number">6</div>
+
+      <div class="left-number">5</div>
+      <div class="bspace" id="a5"></div>
+      <div class="wspace" id="b5"></div>
+      <div class="bspace" id="c5"></div>
+      <div class="wspace" id="d5"></div>
+      <div class="bspace" id="e5"></div>
+      <div class="wspace" id="f5"></div>
+      <div class="bspace" id="g5"></div>
+      <div class="wspace" id="h5"></div>
+      <div class="right-number">5</div>
+
+      <div class="left-number">4</div>
+      <div class="wspace" id="a4"></div>
+      <div class="bspace" id="b4"></div>
+      <div class="wspace" id="c4"></div>
+      <div class="bspace" id="d4"></div>
+      <div class="wspace" id="e4"></div>
+      <div class="bspace" id="f4"></div>
+      <div class="wspace" id="g4"></div>
+      <div class="bspace" id="h4"></div>
+      <div class="right-number">4</div>
+
+      <div class="left-number">3</div>
+      <div class="bspace" id="a3"></div>
+      <div class="wspace" id="b3"></div>
+      <div class="bspace" id="c3"></div>
+      <div class="wspace" id="d3"></div>
+      <div class="bspace" id="e3"></div>
+      <div class="wspace" id="f3"></div>
+      <div class="bspace" id="g3"></div>
+      <div class="wspace" id="h3"></div>
+      <div class="right-number">3</div>
+
+      <div class="left-number">2</div>
+      <div class="wspace" id="a2"></div>
+      <div class="bspace" id="b2"></div>
+      <div class="wspace" id="c2"></div>
+      <div class="bspace" id="d2"></div>
+      <div class="wspace" id="e2"></div>
+      <div class="bspace" id="f2"></div>
+      <div class="wspace" id="g2"></div>
+      <div class="bspace" id="h2"></div>
+      <div class="right-number">2</div>
+
+      <div class="left-number">1</div>
+      <div class="bspace" id="a1"></div>
+      <div class="wspace" id="b1"></div>
+      <div class="bspace" id="c1"></div>
+      <div class="wspace" id="d1"></div>
+      <div class="bspace" id="e1"></div>
+      <div class="wspace" id="f1"></div>
+      <div class="bspace" id="g1"></div>
+      <div class="wspace" id="h1"></div>
+      <div class="right-number">1</div>
+
+      <div class="corner"></div>
       <div class="bottom-letters">a</div>
       <div class="bottom-letters">b</div>
       <div class="bottom-letters">c</div>
@@ -113,6 +117,7 @@
       <div class="bottom-letters">f</div>
       <div class="bottom-letters">g</div>
       <div class="bottom-letters">h</div>
+      <div class="corner"></div>
 
       <script src="main.js"></script>
   </body>
