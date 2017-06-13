@@ -13,12 +13,15 @@ body {
   display: grid;
   grid-template-columns: 20px 80px 80px 80px 80px 80px 80px 80px 80px 20px;
   grid-template-rows: 20px 80px 80px 80px 80px 80px 80px 80px 80px 20px;
+  position: relative;
 }
 
-#boardMap {
+.piece {
   position: absolute;
-  width: 680px;
-  height: 680px;
+  display: block;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 div {
