@@ -3,15 +3,23 @@ body {
   justify-content: center;
   background-color: #312e2b;
   color: #979694;
+  font-size: 1.2em;
+  font-family: sans-serif;
+  font-weight: 600;
 }
 
-#board {
-  margin-top: 100px;
+#boardDisplay {
+  margin-top: 20px;
   display: grid;
   grid-template-columns: 20px 80px 80px 80px 80px 80px 80px 80px 80px 20px;
   grid-template-rows: 20px 80px 80px 80px 80px 80px 80px 80px 80px 20px;
 }
 
+#boardMap {
+  position: absolute;
+  width: 680px;
+  height: 680px;
+}
 
 div {
   display: flex;
