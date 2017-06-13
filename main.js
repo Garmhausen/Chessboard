@@ -1,8 +1,23 @@
 var boardWrapper = document.getElementById('boardDisplay');
-var pieces = document.createElement('div');
-pieces.setAttribute('id', 'pieces');
-var boardMap = document.createElement('div');
-boardMap.setAttribute('id', 'boardMap');
+var pieces = {};
+var boardMap = {};
+boardMap.xa = '25px';
+boardMap.xb = '105px';
+boardMap.xc = '185px';
+boardMap.xd = '265px';
+boardMap.xe = '345px';
+boardMap.xf = '425px';
+boardMap.xg = '505px';
+boardMap.xh = '585px';
+boardMap.y8 = '25px';
+boardMap.y7 = '105px';
+boardMap.y6 = '185px';
+boardMap.y5 = '265px';
+boardMap.y4 = '345px';
+boardMap.y3 = '425px';
+boardMap.y2 = '505px';
+boardMap.y1 = '585px';
+
 
 function buildBoard() {
   let colArray = ['x', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'x'];
@@ -49,13 +64,18 @@ function buildBoard() {
   }
 }
 
-function buildBoardMap() {
-  
-  boardWrapper.appendChild(boardMap);
-}
-
 function resetPieces() {
+  // create each piece as an image and give it a starting location
+  // append each piece to the boardWrapper.  position should be absolute.
+  pieces.bqRook = document.createElement('img');
+  pieces.bqRook.setAttribute('class', 'piece');
+  pieces.bqRook.setAttribute('src', 'images/br.png');
+  pieces.bqRook.style.left = boardMap.a8x;
+  pieces.bqRook.style.top = boardMap.a8y;
+  // let location = boardMap.a8x + ", " + boardMap.a8y;
+  // pieces.bqRook.style.transform = "translate" + location;
 
+  boardWrapper.appendChild(pieces.bqRook);
 }
 
 buildBoard();
