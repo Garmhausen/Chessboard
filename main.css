@@ -1,0 +1,37 @@
+body {
+  display: flex;
+  justify-content: center;
+  background-color: #312e2b;
+  color: #979694;
+}
+
+#board {
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: 20px 80px 80px 80px 80px 80px 80px 80px 80px 20px;
+  grid-template-rows: 20px 80px 80px 80px 80px 80px 80px 80px 80px 20px;
+}
+
+
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wspace {
+  background: #eeeed2;
+}
+
+.bspace {
+  background: #769656;
+}
+
+.highlight {
+  background: #baca44;
+}
+
+.piece {
+  height: 70px;
+  width: 70px;
+}
