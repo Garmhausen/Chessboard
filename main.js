@@ -183,7 +183,7 @@ function buildPieces() {
   }
 }
 
-function animationForward(array, speed) {
+function animationForward(array) {
   console.log("animation call is successful using this array: " + array);
   let piece = document.getElementById(array[0]);
   let x = array[3];
@@ -192,7 +192,7 @@ function animationForward(array, speed) {
 
 }
 
-function animationBackward(array, speed) {
+function animationBackward(array) {
   console.log("animation call is successful using this array: " + array);
   let piece = document.getElementById(array[0]);
   let x = array[1];
@@ -219,15 +219,11 @@ function doPlayPause(event) {
   if (paused) {
     paused = false;
     console.log("playing");
-    while (!paused) {
-      setTimeout(function(){myArray.myMethod()}, 2000);
-      if (sequenceTracker === 9) {
-        paused = true;
-      }
-    }
+    playPause.innerHTML = '<i class="fa fa-pause" aria-hidden="true"></i>';
   } else {
     paused = true;
     console.log("paused");
+    playPause.innerHTML = '<i class="fa fa-play" aria-hidden="true"></i>';
   }
 }
 function doStepForward(event) {
