@@ -26,6 +26,7 @@ body {
   margin-top: 40px;
   border: none;
   border-radius: 5px;
+  outline: none;
 }
 
 .button:hover {
@@ -38,6 +39,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  transition-duration: .5s;
 
 }
 
