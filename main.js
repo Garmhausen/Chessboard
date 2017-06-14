@@ -16,7 +16,7 @@ fastForward.onclick = doFastForward;
 var paused = true; // initially, it's paused.
 
 // 1.d4 Nf6 2.c4 e6 3.g3 d5 4.Bg2 Be7 5.Nf3
-var forwardSequence = [
+var sequence = [
   ['wdpawn', 'boardMap.xd', 'boardMap.y4'],
   ['bkknight', 'boardMap.xf', 'boardMap.y6'],
   ['wcpawn', 'boardMap.xc', 'boardMap.y4'],
@@ -25,7 +25,8 @@ var forwardSequence = [
   ['bdpawn', 'boardMap.xd', 'boardMap.y5'],
   ['wkbishop', 'boardMap.xg', 'boardMap.y2'],
   ['bkbishop', 'boardMap.xe', 'boardMap.y7'],
-  ['wkknight', 'boardMap.xf', 'boardMap.y3']];
+  ['wkknight', 'boardMap.xf', 'boardMap.y3']
+];
 
 var reverseSequence = [];
 
