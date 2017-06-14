@@ -2,6 +2,24 @@ var boardWrapper = document.getElementById('boardDisplay');
 var pieces = {};
 var boardMap = {};
 
+// board square locations by x and y coords.
+boardMap.xa = '1.6vw';
+boardMap.xb = '9.7vw';
+boardMap.xc = '17.6vw';
+boardMap.xd = '25.7vw';
+boardMap.xe = '33.8vw';
+boardMap.xf = '41.8vw';
+boardMap.xg = '49.7vw';
+boardMap.xh = '57.8vw';
+boardMap.y8 = '1.6vw';
+boardMap.y7 = '9.7vw';
+boardMap.y6 = '17.6vw';
+boardMap.y5 = '25.7vw';
+boardMap.y4 = '33.8vw';
+boardMap.y3 = '41.8vw';
+boardMap.y2 = '49.7vw';
+boardMap.y1 = '57.8vw';
+
 // button controls
 var rewind = document.getElementById('rewind');
 rewind.onclick = doRewind;
@@ -16,22 +34,21 @@ fastForward.onclick = doFastForward;
 var paused = true; // initially, it's paused.
 
 // 1.d4 Nf6 2.c4 e6 3.g3 d5 4.Bg2 Be7 5.Nf3
+// the array is [id, startx, starty, endx, endy]
+
 var sequence = [
-  ['wdpawn', 'boardMap.xd', 'boardMap.y4'],
-  ['bkknight', 'boardMap.xf', 'boardMap.y6'],
-  ['wcpawn', 'boardMap.xc', 'boardMap.y4'],
-  ['bepawn', 'boardMap.xe', 'boardMap.y6'],
-  ['wgpawn', 'boardMap.xg', 'boardMap.y3'],
-  ['bdpawn', 'boardMap.xd', 'boardMap.y5'],
-  ['wkbishop', 'boardMap.xg', 'boardMap.y2'],
-  ['bkbishop', 'boardMap.xe', 'boardMap.y7'],
-  ['wkknight', 'boardMap.xf', 'boardMap.y3']
+  ['wdpawn', boardMap.xd, boardMap.y2, boardMap.xd, boardMap.y4],
+  ['bkknight', boardMap.xg, boardMap.y8, boardMap.xf, boardMap.y6],
+  ['wcpawn', boardMap.xc, boardMap.y2, boardMap.xc, boardMap.y4],
+  ['bepawn', boardMap.xe, boardMap.y7, boardMap.xe, boardMap.y6],
+  ['wgpawn', boardMap.xg, boardMap.y2, boardMap.xg, boardMap.y3],
+  ['bdpawn', boardMap.xd, boardMap.y7, boardMap.xd, boardMap.y5],
+  ['wkbishop', boardMap.xf, boardMap.y1, boardMap.xg, boardMap.y2],
+  ['bkbishop', boardMap.xf, boardMap.y8, boardMap.xe, boardMap.y7],
+  ['wkknight', boardMap.xg, boardMap.y1, boardMap.xf, boardMap.y3]
 ];
 
-var reverseSequence = [];
-
 var sequenceTracker = 0;
-
 
 function buildBoard() {
   let colArray = ['x', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'x'];
@@ -70,24 +87,6 @@ function buildBoard() {
       boardWrapper.appendChild(build);
     }
   }
-
-  // board square locations by x and y coords.  Maybe move into above loop??
-  boardMap.xa = '1.6vw';
-  boardMap.xb = '9.5vw';
-  boardMap.xc = '17.6vw';
-  boardMap.xd = '25.7vw';
-  boardMap.xe = '33.8vw';
-  boardMap.xf = '41.8vw';
-  boardMap.xg = '49.7vw';
-  boardMap.xh = '57.8vw';
-  boardMap.y8 = '1.6vw';
-  boardMap.y7 = '9.5vw';
-  boardMap.y6 = '17.6vw';
-  boardMap.y5 = '25.7vw';
-  boardMap.y4 = '33.8vw';
-  boardMap.y3 = '41.8vw';
-  boardMap.y2 = '49.7vw';
-  boardMap.y1 = '57.8vw';
 }
 
 function resetPieces() {
@@ -184,6 +183,24 @@ function buildPieces() {
   }
 }
 
+function animationForward(array, speed) {
+  console.log("animation call is successful using this array: " + array);
+  let piece = document.getElementById(array[0]);
+  let x = array[3];
+  let y = array[4];
+  piece.style.transform = "translate(" + x + ", " + y + ")";
+
+}
+
+function animationBackward(array, speed) {
+  console.log("animation call is successful using this array: " + array);
+  let piece = document.getElementById(array[0]);
+  let x = array[1];
+  let y = array[2];
+  piece.style.transform = "translate(" + x + ", " + y + ")";
+
+}
+
 function doRewind(event) {
   console.log("rewind");
   sequenceTracker = 0;
@@ -193,7 +210,7 @@ function doRewind(event) {
 function doStepBack(event) {
   console.log("step back");
   if (sequenceTracker > 0) {
-    // call animation() to move piece backwards according to where the tracker is.
+    animationBackward(sequence[sequenceTracker - 1]);
     sequenceTracker--;
     console.log("new sequence position: " + sequenceTracker);
   }
@@ -202,6 +219,12 @@ function doPlayPause(event) {
   if (paused) {
     paused = false;
     console.log("playing");
+    while (!paused) {
+      setTimeout(function(){myArray.myMethod()}, 2000);
+      if (sequenceTracker === 9) {
+        paused = true;
+      }
+    }
   } else {
     paused = true;
     console.log("paused");
@@ -209,15 +232,18 @@ function doPlayPause(event) {
 }
 function doStepForward(event) {
   console.log("step forward");
-  if (sequenceTracker < 8) {
-    // call animation() to move piece forwards according to where the tracker is.
+  if (sequenceTracker < 9) {
+    animationForward(sequence[sequenceTracker]);
     sequenceTracker++;
     console.log("new sequence position: " + sequenceTracker);
   }
 }
 function doFastForward(event) {
   console.log("fast forward");
-  sequenceTracker = 8;
+  while (sequenceTracker < 9) {
+    animationForward(sequence[sequenceTracker]);
+    sequenceTracker++;
+  }
   console.log("new sequence position: " + sequenceTracker);
 }
 
