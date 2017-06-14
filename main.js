@@ -44,7 +44,7 @@ function buildBoard() {
   boardMap.xa = '1.6vw';
   boardMap.xb = '9.5vw';
   boardMap.xc = '17.6vw';
-  boardMap.xd = '25.6vw';
+  boardMap.xd = '25.7vw';
   boardMap.xe = '33.8vw';
   boardMap.xf = '41.8vw';
   boardMap.xg = '49.7vw';
@@ -52,7 +52,7 @@ function buildBoard() {
   boardMap.y8 = '1.6vw';
   boardMap.y7 = '9.5vw';
   boardMap.y6 = '17.6vw';
-  boardMap.y5 = '25.6vw';
+  boardMap.y5 = '25.7vw';
   boardMap.y4 = '33.8vw';
   boardMap.y3 = '41.8vw';
   boardMap.y2 = '49.7vw';
