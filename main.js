@@ -2,6 +2,36 @@ var boardWrapper = document.getElementById('boardDisplay');
 var pieces = {};
 var boardMap = {};
 
+// button controls
+var rewind = document.getElementById('rewind');
+rewind.onclick = doRewind;
+var stepBack = document.getElementById('step-back');
+stepBack.onclick = doStepBack;
+var playPause = document.getElementById('play-pause');
+playPause.onclick = doPlayPause;
+var stepForward = document.getElementById('step-forward');
+stepForward.onclick = doStepForward;
+var fastForward = document.getElementById('fast-forward');
+fastForward.onclick = doFastForward;
+var paused = true; // initially, it's paused.
+
+// 1.d4 Nf6 2.c4 e6 3.g3 d5 4.Bg2 Be7 5.Nf3
+var forwardSequence = [
+  ['wdpawn', 'boardMap.xd', 'boardMap.y4'],
+  ['bkknight', 'boardMap.xf', 'boardMap.y6'],
+  ['wcpawn', 'boardMap.xc', 'boardMap.y4'],
+  ['bepawn', 'boardMap.xe', 'boardMap.y6'],
+  ['wgpawn', 'boardMap.xg', 'boardMap.y3'],
+  ['bdpawn', 'boardMap.xd', 'boardMap.y5'],
+  ['wkbishop', 'boardMap.xg', 'boardMap.y2'],
+  ['bkbishop', 'boardMap.xe', 'boardMap.y7'],
+  ['wkknight', 'boardMap.xf', 'boardMap.y3']];
+
+var reverseSequence = [];
+
+var sequenceTracker = 0;
+
+
 function buildBoard() {
   let colArray = ['x', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'x'];
   let rowArray = ['x', 8, 7, 6, 5, 4, 3, 2, 1, 'x'];
@@ -151,6 +181,43 @@ function buildPieces() {
 
     boardWrapper.appendChild(build);
   }
+}
+
+function doRewind(event) {
+  console.log("rewind");
+  sequenceTracker = 0;
+  console.log("new sequence position: " + sequenceTracker);
+  resetPieces();
+}
+function doStepBack(event) {
+  console.log("step back");
+  if (sequenceTracker > 0) {
+    // call animation() to move piece backwards according to where the tracker is.
+    sequenceTracker--;
+    console.log("new sequence position: " + sequenceTracker);
+  }
+}
+function doPlayPause(event) {
+  if (paused) {
+    paused = false;
+    console.log("playing");
+  } else {
+    paused = true;
+    console.log("paused");
+  }
+}
+function doStepForward(event) {
+  console.log("step forward");
+  if (sequenceTracker < 8) {
+    // call animation() to move piece forwards according to where the tracker is.
+    sequenceTracker++;
+    console.log("new sequence position: " + sequenceTracker);
+  }
+}
+function doFastForward(event) {
+  console.log("fast forward");
+  sequenceTracker = 8;
+  console.log("new sequence position: " + sequenceTracker);
 }
 
 buildBoard();   // build the game board DOM tree...
