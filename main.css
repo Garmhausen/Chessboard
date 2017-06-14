@@ -24,6 +24,12 @@ body {
 
 .button {
   margin-top: 40px;
+  border: none;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: white;
 }
 
 .piece {
