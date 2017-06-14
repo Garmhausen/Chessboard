@@ -41,22 +41,22 @@ function buildBoard() {
   }
 
   // board square locations by x and y coords.  Maybe move into above loop??
-  boardMap.xa = '25px';
-  boardMap.xb = '105px';
-  boardMap.xc = '185px';
-  boardMap.xd = '265px';
-  boardMap.xe = '345px';
-  boardMap.xf = '425px';
-  boardMap.xg = '505px';
-  boardMap.xh = '585px';
-  boardMap.y8 = '25px';
-  boardMap.y7 = '105px';
-  boardMap.y6 = '185px';
-  boardMap.y5 = '265px';
-  boardMap.y4 = '345px';
-  boardMap.y3 = '425px';
-  boardMap.y2 = '505px';
-  boardMap.y1 = '585px';
+  boardMap.xa = '1.6vw';
+  boardMap.xb = '9.5vw';
+  boardMap.xc = '17.6vw';
+  boardMap.xd = '25.6vw';
+  boardMap.xe = '33.8vw';
+  boardMap.xf = '41.8vw';
+  boardMap.xg = '49.7vw';
+  boardMap.xh = '57.8vw';
+  boardMap.y8 = '1.6vw';
+  boardMap.y7 = '9.5vw';
+  boardMap.y6 = '17.6vw';
+  boardMap.y5 = '25.6vw';
+  boardMap.y4 = '33.8vw';
+  boardMap.y3 = '41.8vw';
+  boardMap.y2 = '49.7vw';
+  boardMap.y1 = '57.8vw';
 }
 
 function resetPieces() {

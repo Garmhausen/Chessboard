@@ -9,10 +9,10 @@ body {
 }
 
 #boardDisplay {
-  margin-top: 20px;
+  margin: 20px auto 0 auto;
   display: grid;
-  grid-template-columns: 20px 80px 80px 80px 80px 80px 80px 80px 80px 20px;
-  grid-template-rows: 20px 80px 80px 80px 80px 80px 80px 80px 80px 20px;
+  grid-template-columns: 2vw 8vw 8vw 8vw 8vw 8vw 8vw 8vw 8vw 2vw;
+  grid-template-rows: 2vw 8vw 8vw 8vw 8vw 8vw 8vw 8vw 8vw 2vw;
   position: relative;
 }
 
@@ -22,6 +22,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+
 }
 
 div {
@@ -43,6 +44,6 @@ div {
 }
 
 .piece {
-  height: 70px;
-  width: 70px;
+  height: 8.5vw;
+  width: 8.5vw;
 }
