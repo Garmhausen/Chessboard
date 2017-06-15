@@ -1,6 +1,7 @@
 var boardWrapper = document.getElementById('boardDisplay');
 var pieces = {};
 var boardMap = {};
+var playLoop;
 
 // board square locations by x and y coords.
 boardMap.xa = '1.6vw';
@@ -37,15 +38,15 @@ var paused = true; // initially, it's paused.
 // the array is [id, startx, starty, endx, endy]
 
 var sequence = [
-  ['wdpawn', boardMap.xd, boardMap.y2, boardMap.xd, boardMap.y4],
-  ['bkknight', boardMap.xg, boardMap.y8, boardMap.xf, boardMap.y6],
-  ['wcpawn', boardMap.xc, boardMap.y2, boardMap.xc, boardMap.y4],
-  ['bepawn', boardMap.xe, boardMap.y7, boardMap.xe, boardMap.y6],
-  ['wgpawn', boardMap.xg, boardMap.y2, boardMap.xg, boardMap.y3],
-  ['bdpawn', boardMap.xd, boardMap.y7, boardMap.xd, boardMap.y5],
-  ['wkbishop', boardMap.xf, boardMap.y1, boardMap.xg, boardMap.y2],
-  ['bkbishop', boardMap.xf, boardMap.y8, boardMap.xe, boardMap.y7],
-  ['wkknight', boardMap.xg, boardMap.y1, boardMap.xf, boardMap.y3]
+  ['wdpawn', boardMap.xd, boardMap.y2, boardMap.xd, boardMap.y4, 'd2', 'd4'],
+  ['bkknight', boardMap.xg, boardMap.y8, boardMap.xf, boardMap.y6, 'g8', 'f6'],
+  ['wcpawn', boardMap.xc, boardMap.y2, boardMap.xc, boardMap.y4, 'c2', 'c4'],
+  ['bepawn', boardMap.xe, boardMap.y7, boardMap.xe, boardMap.y6, 'e7', 'e6'],
+  ['wgpawn', boardMap.xg, boardMap.y2, boardMap.xg, boardMap.y3, 'g2', 'g3'],
+  ['bdpawn', boardMap.xd, boardMap.y7, boardMap.xd, boardMap.y5, 'd7', 'd5'],
+  ['wkbishop', boardMap.xf, boardMap.y1, boardMap.xg, boardMap.y2, 'f1', 'g2'],
+  ['bkbishop', boardMap.xf, boardMap.y8, boardMap.xe, boardMap.y7, 'f8', 'e7'],
+  ['wkknight', boardMap.xg, boardMap.y1, boardMap.xf, boardMap.y3, 'g1', 'f3']
 ];
 
 var sequenceTracker = 0;
@@ -188,6 +189,7 @@ function animationForward(array) {
   let piece = document.getElementById(array[0]);
   let x = array[3];
   let y = array[4];
+  // document.getElementById
   piece.style.transform = "translate(" + x + ", " + y + ")";
 
 }
@@ -198,7 +200,6 @@ function animationBackward(array) {
   let x = array[1];
   let y = array[2];
   piece.style.transform = "translate(" + x + ", " + y + ")";
-
 }
 
 function doRewind(event) {
@@ -220,10 +221,17 @@ function doPlayPause(event) {
     paused = false;
     console.log("playing");
     playPause.innerHTML = '<i class="fa fa-pause" aria-hidden="true"></i>';
+
+    // BEGIN play animation
+    playLoop = window.setInterval(doStepForward, 2000);
+
   } else {
     paused = true;
     console.log("paused");
     playPause.innerHTML = '<i class="fa fa-play" aria-hidden="true"></i>';
+
+    // END play animation
+    clearInterval(playLoop);
   }
 }
 function doStepForward(event) {
@@ -233,6 +241,7 @@ function doStepForward(event) {
     sequenceTracker++;
     console.log("new sequence position: " + sequenceTracker);
   }
+
 }
 function doFastForward(event) {
   console.log("fast forward");
